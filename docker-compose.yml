@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  db:
+    image: redis:latest
+    hostname: redis
+    ports:
+        - '6379:6379'
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - redisNW
+  my-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - redisNW
+
+networks:
+  redisNW:
+    driver: bridge

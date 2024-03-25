@@ -1,0 +1,13 @@
+Server:
+  AppVersion: "1.0.0"
+  Host: "0.0.0.0"
+  Port: "8080"
+  N: 10s
+  K: 5
+  Number: 1
+  Timeout: 60s
+
+Redis:
+  addr: "redis:6379"
+  password: ""
+  DB: 0

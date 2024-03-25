@@ -1,12 +1,6 @@
-package main
+package service
 
-import (
-	"context"
-)
-
-func main() {
-
-}
+import "context"
 
 // FloodControl интерфейс, который нужно реализовать.
 // Рекомендуем создать директорию-пакет, в которой будет находиться реализация.
